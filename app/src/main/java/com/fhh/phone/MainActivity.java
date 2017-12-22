@@ -142,6 +142,9 @@ public class MainActivity extends AppCompatActivity {
         callInFragment.setMyCallList(callIn);
         callOutFragment.setMyCallList(callOut);
         callMissedFragment.setMyCallList(callMissed);
+        callInFragment.setMyClickListener(myClickListener);
+        callOutFragment.setMyClickListener(myClickListener);
+        callMissedFragment.setMyClickListener(myClickListener);
 
         fragments.add(callInFragment);
         fragments.add(callOutFragment);
