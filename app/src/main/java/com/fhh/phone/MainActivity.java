@@ -47,12 +47,13 @@ public class MainActivity extends AppCompatActivity {
 
         checkPermission(PERMISSION_REQUEST_READ_CALL_LOG);
         checkPermission(PERMISSION_REQUEST_READ_CONTACTS);
-        checkPermission(PERMISSION_REQUEST_CALL_PHONE);
-        checkPermission(PERMISSION_REQUEST_SEND_SMS);
+
         if (couldReadContacts&&couldReadCallLog){
             readCallData();
             createPage();
         }else{
+            checkPermission(PERMISSION_REQUEST_READ_CALL_LOG);
+            checkPermission(PERMISSION_REQUEST_READ_CONTACTS);
             Toast.makeText(MainActivity.this,"请授予权限,否则无法正常工作",Toast.LENGTH_SHORT).show();
         }
     }
@@ -215,12 +216,14 @@ public class MainActivity extends AppCompatActivity {
    private void setMyClickListener(){
         myClickListener = new MyClickListener() {
             @Override
-            public void onClick(TextView nameView, TextView numberView) {
-                String name = nameView.getText().toString();
-                final String number = numberView.getText().toString();
+            public void onClick(String name, String theNumber) {
+                final String number = theNumber;
                 AlertDialog.Builder chooseDialog = new AlertDialog.Builder(MainActivity.this);
                 chooseDialog.setTitle("请选择：");
-                chooseDialog.setMessage("向"+name + "(" + number + ")");
+                if (!(name.equals("无"))){
+                    chooseDialog.setMessage("向"+name + "(" + number + ")");
+                }
+                chooseDialog.setMessage("向" + number);
                 chooseDialog.setCancelable(true);
                 chooseDialog.setPositiveButton("拨打电话", new DialogInterface.OnClickListener() {
                     @Override

@@ -66,7 +66,9 @@ public class CallRecyclerAdapter extends RecyclerView.Adapter<CallRecyclerAdapte
         holder.click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myClickListener.onClick(holder.use_name,holder.use_number);
+                int position = holder.getAdapterPosition();
+                Call call = callList.get(position);
+                myClickListener.onClick(call.getName(),call.getPhoneNumber());
             }
         });
 

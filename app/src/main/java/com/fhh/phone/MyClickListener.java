@@ -7,5 +7,5 @@ import android.widget.TextView;
  */
 
 public interface MyClickListener {
-     void onClick(TextView name, TextView number);
+     void onClick(String  name, String number);
 }
