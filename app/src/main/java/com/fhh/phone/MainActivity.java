@@ -47,13 +47,13 @@ public class MainActivity extends AppCompatActivity {
 
         checkPermission(PERMISSION_REQUEST_READ_CALL_LOG);
         checkPermission(PERMISSION_REQUEST_READ_CONTACTS);
-
-        if (couldReadCallLog && couldReadContacts) {
+        checkPermission(PERMISSION_REQUEST_CALL_PHONE);
+        checkPermission(PERMISSION_REQUEST_SEND_SMS);
+        if (couldReadContacts&&couldReadCallLog){
             readCallData();
             createPage();
-        } else {
-            checkPermission(PERMISSION_REQUEST_READ_CALL_LOG);
-            checkPermission(PERMISSION_REQUEST_READ_CONTACTS);
+        }else{
+            Toast.makeText(MainActivity.this,"请授予权限,否则无法正常工作",Toast.LENGTH_SHORT).show();
         }
     }
 
