@@ -220,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
                 final String number = numberView.getText().toString();
                 AlertDialog.Builder chooseDialog = new AlertDialog.Builder(MainActivity.this);
                 chooseDialog.setTitle("请选择：");
-                chooseDialog.setMessage(name + "(" + number + ")");
+                chooseDialog.setMessage("向"+name + "(" + number + ")");
                 chooseDialog.setCancelable(true);
                 chooseDialog.setPositiveButton("拨打电话", new DialogInterface.OnClickListener() {
                     @Override
@@ -294,7 +294,7 @@ public class MainActivity extends AppCompatActivity {
     private void makeCall(String number) {
         try {
             Intent intent = new Intent(Intent.ACTION_CALL);
-            intent.setData(Uri.parse("TEL:"+number));
+            intent.setData(Uri.parse("tel:"+number));
             startActivity(intent);
         }catch (Exception e){
             e.printStackTrace();
@@ -303,7 +303,7 @@ public class MainActivity extends AppCompatActivity {
     private void sendSMS(String number){
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("SMSTO:"+number));
+            intent.setData(Uri.parse("smsto:"+number));
             startActivity(intent);
         }catch (Exception e){
             e.printStackTrace();
