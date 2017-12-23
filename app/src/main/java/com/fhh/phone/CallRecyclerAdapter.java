@@ -27,8 +27,6 @@ public class CallRecyclerAdapter extends RecyclerView.Adapter<CallRecyclerAdapte
     static class ViewHolder extends RecyclerView.ViewHolder {
         View callView;
         TextView nameOrPhone;
-        TextView use_number;
-        TextView use_name;
         ImageView photo;
         ImageView callType;
         TextView date;
@@ -47,8 +45,6 @@ public class CallRecyclerAdapter extends RecyclerView.Adapter<CallRecyclerAdapte
             date = callView.findViewById(R.id.tv_call_date);
             time = callView.findViewById(R.id.tv_call_time);
             duration = callView.findViewById(R.id.tv_call_duration);
-            use_number = callView.findViewById(R.id.use_phone);
-            use_name = callView.findViewById(R.id.use_name);
             dateLine = callView.findViewById(R.id.date_line);
             callLine = callView.findViewById(R.id.call_line);
             click = callView.findViewById(R.id.use_to_click);
@@ -87,11 +83,6 @@ public class CallRecyclerAdapter extends RecyclerView.Adapter<CallRecyclerAdapte
             holder.callType.setVisibility(View.GONE);
         }
         holder.duration.setText(call.getDuration());
-
-        holder.use_number.setText(call.getPhoneNumber());
-
-        holder.use_name.setText(call.getName());
-
         if (call.getName().equals("无")) {
             holder.nameOrPhone.setText(call.getPhoneNumber());
         } else {

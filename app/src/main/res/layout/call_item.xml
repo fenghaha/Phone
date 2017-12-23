@@ -52,20 +52,6 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/use_phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:text="18384824763"/>
-            <TextView
-                android:id="@+id/use_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:text="冯海航"/>
-
             <TextView
                 android:id="@+id/tv_call_name_or_phone"
                 android:layout_width="wrap_content"
