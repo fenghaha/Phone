@@ -12,6 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 /**
+ *
  * Created by FengHaHa on 2017/12/22.
  */
 
@@ -98,7 +99,7 @@ public class CallRecyclerAdapter extends RecyclerView.Adapter<CallRecyclerAdapte
         } else {
             holder.photo.setImageResource(R.drawable.photo);
         }
-        if (call.getDate().equals(callList.get(position + 1).getDate())) {
+        if (position<callList.size()-1&&call.getDate().equals(callList.get(position + 1).getDate())) {
             holder.callLine.setVisibility(View.VISIBLE);
         }
         holder.time.setText(call.getTime());
