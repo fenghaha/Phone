@@ -16,7 +16,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -48,13 +47,13 @@ public class MainActivity extends AppCompatActivity {
         checkPermission(PERMISSION_REQUEST_READ_CALL_LOG);
         checkPermission(PERMISSION_REQUEST_READ_CONTACTS);
 
-        if (couldReadContacts&&couldReadCallLog){
+        if (couldReadContacts && couldReadCallLog) {
             readCallData();
             createPage();
-        }else{
+        } else {
             checkPermission(PERMISSION_REQUEST_READ_CALL_LOG);
             checkPermission(PERMISSION_REQUEST_READ_CONTACTS);
-            Toast.makeText(MainActivity.this,"请授予权限,否则无法正常工作",Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "请授予权限,否则无法正常工作", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -213,15 +212,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-   private void setMyClickListener(){
+    private void setMyClickListener() {
         myClickListener = new MyClickListener() {
             @Override
             public void onClick(String name, String theNumber) {
                 final String number = theNumber;
                 AlertDialog.Builder chooseDialog = new AlertDialog.Builder(MainActivity.this);
                 chooseDialog.setTitle("请选择：");
-                if (!(name.equals("无"))){
-                    chooseDialog.setMessage("向"+name + "(" + number + ")");
+                if (!(name.equals("无"))) {
+                    chooseDialog.setMessage("向" + name + "(" + number + ")");
                 }
                 chooseDialog.setMessage("向" + number);
                 chooseDialog.setCancelable(true);
@@ -251,6 +250,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
@@ -297,18 +297,19 @@ public class MainActivity extends AppCompatActivity {
     private void makeCall(String number) {
         try {
             Intent intent = new Intent(Intent.ACTION_CALL);
-            intent.setData(Uri.parse("tel:"+number));
+            intent.setData(Uri.parse("tel:" + number));
             startActivity(intent);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    private void sendSMS(String number){
+
+    private void sendSMS(String number) {
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("smsto:"+number));
+            intent.setData(Uri.parse("smsto:" + number));
             startActivity(intent);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
